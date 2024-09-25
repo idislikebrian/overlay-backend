@@ -6,7 +6,10 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: "https://overlay-five.vercel.app",
+        origin: [
+            "https://overlay-five.vercel.app",
+            "https://unlonely-alpha-git-homepage-exp-unlonely-alpha.vercel.app/"
+        ],
         methods: ["GET", "POST"]
     }
 });
