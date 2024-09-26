@@ -8,7 +8,10 @@ const io = new Server(server, {
     cors: {
         origin: [
             "https://overlay-five.vercel.app",
-            "https://unlonely-alpha-git-homepage-exp-unlonely-alpha.vercel.app/"
+            "https://unlonely-alpha-git-homepage-exp-unlonely-alpha.vercel.app",
+            "https://unlonely-alpha-git-staging-unlonely-alpha.vercel.app",
+            "https://www.unlonely.app"
+
         ],
         methods: ["GET", "POST"]
     }
