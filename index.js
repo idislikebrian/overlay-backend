@@ -13,7 +13,8 @@ const io = new Server(server, {
             "https://www.unlonely.app"
 
         ],
-        methods: ["GET", "POST"]
+        methods: ["GET", "POST"],
+        credentials: true
     }
 });
 
@@ -55,5 +56,3 @@ const PORT = process.env.PORT || 3000;
 server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
-
-
