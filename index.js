@@ -6,18 +6,11 @@ const app = express();
 const server = http.createServer(app);
 const io = new Server(server, {
     cors: {
-        origin: [
-            "https://overlay-five.vercel.app",
-            "https://unlonely-alpha-git-homepage-exp-unlonely-alpha.vercel.app",
-            "https://unlonely-alpha-git-staging-unlonely-alpha.vercel.app",
-            "https://www.unlonely.app"
-
-        ],
+        origin: '*',
         methods: ["GET", "POST"],
         credentials: true
     }
 });
-
 
 require('dotenv').config();
 
@@ -52,7 +45,7 @@ app.post('/emit-play-audio', (req, res) => {
     res.status(200).json({ success: true, message: 'Audio emitted to clients.' });
 });
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 8000;
 server.listen(PORT, () => {
     console.log(`Listening on port ${PORT}`);
 });
