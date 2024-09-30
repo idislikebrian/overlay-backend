@@ -20,6 +20,8 @@ const io = new Server(server, {
 
 require('dotenv').config();
 
+app.use(express.json());
+
 io.on('connection', (socket) => {
     console.log('a user connected');
     
@@ -36,6 +38,17 @@ app.get('/status', (req, res) => {
     return res.status(200).json({
         msg: 'Working',
     });
+});
+
+app.post('/emit-play-audio', (req, res) => {
+    const { audio } = req.body;
+    if (!audio) {
+        return res.status(400).json({ error: 'No audio data provided.' });
+    }
+
+    io.emit('play-audio', { audio });
+
+    res.status(200).json({ success: true, message: 'Audio emitted to clients.' });
 });
 
 const PORT = process.env.PORT || 3000;
